@@ -75,35 +75,8 @@ export default function StudentList({ studentData }: StudentData) {
     return () => {
       results = [];
     };
-  }, [nameSearchItem, studentData, studentData.length]);
-  useEffect(() => {
-    let results: Student[] = studentData.filter((student) =>
-      student.tags.some(
-        (tag) =>
-          tag.toLowerCase().includes(tagSearchItem.toLowerCase()) &&
-          (nameSearchItem.length !== 0
-            ? student.firstName
-                .toLowerCase()
-                .includes(nameSearchItem.toLowerCase()) ||
-              student.lastName
-                .toLowerCase()
-                .includes(nameSearchItem.toLowerCase()) ||
-              `${student.firstName}${" "}${student.lastName}`
-                .toLowerCase()
-                .includes(nameSearchItem.toLowerCase())
-            : studentData.length > 0)
-      )
-    );
-
-    if (tagSearchItem.length === 0) {
-      setSearchResults(studentData);
-    } else {
-      setSearchResults(results);
-    }
-    return () => {
-      results = [];
-    };
-  }, [tagSearchItem]);
+  }, [nameSearchItem, studentData, studentData.length, tagSearchItem]);
+ 
 
   return (
     <>
