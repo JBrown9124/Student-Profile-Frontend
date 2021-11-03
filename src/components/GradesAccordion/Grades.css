@@ -1,0 +1,22 @@
+
+
+.gradesContainer {
+    margin-left: 24%;
+}
+@media (max-width: 480px) {
+    .gradesContainer {
+        margin-left: 60%;
+    }
+}
+
+@media (max-width: 768px) and (min-width:481px) {
+    .gradesContainer {
+        margin-left: -52%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .gradesContainer {
+        margin-left: -52%;
+    }
+}

@@ -8,11 +8,11 @@ theme.typography.h6 = {
  
 };
 theme.typography.body1 = {
-  fontFamily: "Railway, sans-serif",
+  fontFamily: "Raleway, sans-serif",
   
-  color: "rgb(92, 92, 138)",
+  color: "rgb(66, 61, 61)",
   [theme.breakpoints.up("sm")]: {
-    fontSize: "1.1rem",
+    fontSize: "1.0rem",
   },
   [theme.breakpoints.down("sm")]: {
     fontSize: ".5rem",
@@ -28,7 +28,7 @@ theme.typography.h2 = {
   
 };
 theme.typography.h1 = {
-  fontFamily: "Railway, sans-serif",
+  fontFamily: "Raleway, sans-serif",
 
   color: "black",
     fontWeight: "bold",

@@ -1,59 +1,111 @@
-import React, { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
-import { Scrollbars } from "react-custom-scrollbars";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Typography from "@mui/material/Typography";
-
 import Container from "react-bootstrap/Container";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Checkbox from "@mui/material/Checkbox";
-
-import Avatar from "@mui/material/Avatar";
-import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import ListTextField from "./ListTextField";
-
-
+import AddTagTextField from "./AddTagTextField";
 
 const handleAverage = (grades: Array<any>): number => {
-    const average =
-      grades.reduce(
-        (a: string, b: string): number => parseInt(a) + parseInt(b),
-        0
-      ) / grades.length;
-    return average;
-  };
-  interface SecondaryTextProps {
-    company: string;
-    skill: string;
-    grades: Array<number>;
-    email: string;
-  }
-  const secondaryText = ({
-    company,
-    skill,
-    grades,
-    email,
-  }: SecondaryTextProps) => {
-    const average = handleAverage(grades);
-    return (
-      <div>
-        <Container style={{ marginLeft: "90px" }}>
-          <Typography variant="body1">
-            <Row style={{ marginBottom: 4 }}>Email: {email}</Row>
-            <Row style={{ marginBottom: 4 }}>Company: {company}</Row>
-            <Row style={{ marginBottom: 4 }}>Skill: {skill}</Row>
-            <Row>Average: {average}%</Row>
+  const average =
+    grades.reduce(
+      (a: string, b: string): number => parseInt(a) + parseInt(b),
+      0
+    ) / grades.length;
+  return average;
+};
+interface SecondaryTextProps {
+  company: string;
+  skill: string;
+  grades: Array<number>;
+  email: string;
+  tags: Array<string>;
+  id: string;
+  addTag: (tag: string) => void;
+}
+const secondaryText = ({
+  company,
+  skill,
+  grades,
+  email,
+  tags,
+  id,
+  addTag,
+}: SecondaryTextProps) => {
+  const average = handleAverage(grades);
+  return (
+    <>
+      <Container style={{ marginLeft: "90px" }} fluid>
+        <Row>
+          <Typography component="span" variant="body1">
+            Email: {email}
           </Typography>
-        </Container>
-      </div>
-    );
-  };
+        </Row>
+        <Row>
+          <Typography component="span" variant="body1">
+            Company: {company}
+          </Typography>
+        </Row>
+        <Row>
+          <Typography component="span" variant="body1">
+            Skill: {skill}
+          </Typography>
+        </Row>
+        <Row>
+          <Typography component="span" variant="body1">
+            Average: {average}%
+          </Typography>
+        </Row>
+        <Container>
+          <Row>
+            {tags.map((tag, idx) => (
+              <Col
+                className="p-1"
+                key={idx * parseInt(id)}
+                xxl={"auto"}
+                xl={"auto"}
+                xs={"auto"}
+                md={"auto"}
+                lg={"auto"}
+                sm={"auto"}
+              >
+                <Box
+                  sx={{
+                    marginTop: 1,
+                    paddingTop: 0.5,
+                    paddingBottom: 0.5,
+                    paddingLeft: 1,
+                    paddingRight: 1,
 
-export default secondaryText
+                    border: "thin",
+                    backgroundColor: "rgb(218, 216, 216)",
+                    borderRadius: "3px",
+                    borderWidth: "thin",
+                    borderColor: "rgb(204, 204, 204)",
+                    borderStyle: "solid",
+                  }}
+                >
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center!important",
+                      justifyContent: "center!important",
+                    }}
+                  >
+                    {tag}
+                  </Typography>
+                </Box>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+
+        <Row>
+          <AddTagTextField addTag={(props) => addTag(props)} />
+        </Row>
+      </Container>
+    </>
+  );
+};
+
+export default secondaryText;
