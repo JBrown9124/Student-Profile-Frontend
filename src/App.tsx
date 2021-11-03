@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import "./components/GradesAccordion/Grades.css";
+import Container from "react-bootstrap/Container";
 import StudentList from "./components/StudentList";
 import theme from "./themes/theme1";
 import { ThemeProvider } from "@mui/material/styles";
@@ -27,23 +28,22 @@ function App() {
       .get<Student[]>("https://api.hatchways.io/assessment/students")
       .then((response: AxiosResponse) =>
         setStudentData(
-          response.data.students.map((v: any) => ({ ...v, tags: [] }))
+          response.data.students.map((v: Student) => ({ ...v, tags: [] }))
         )
       );
   };
-  if (studentData.length === 0) {
-    handleStudentsData();
-  }
   useEffect(() => {
-    setStudentData(studentData);
-  }, [studentData.length, studentData]);
+    handleStudentsData();
+  }, []);
 
   return (
-    <div className="appContainer">
-      <ThemeProvider theme={theme}>
-        <StudentList studentData={studentData} />
-      </ThemeProvider>
-    </div>
+    <>
+      <Container className="appContainer" fluid>
+        <ThemeProvider theme={theme}>
+          <StudentList studentData={studentData} />
+        </ThemeProvider>
+      </Container>
+    </>
   );
 }
 

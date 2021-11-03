@@ -10,13 +10,11 @@ const GradesAccordionSummary = styled((props: AccordionSummaryProps) => (
     {...props}
   />
 ))(({ theme }) => ({
-  width: "100%",
-  height: "100%",
   pointerEvents: "none",
   backgroundColor: "white",
   overflow: "hidden",
   "&.MuiAccordionSummary-focused": {
-    backgroundColor: "white",
+    backgroundColor: "white!important",
   },
   "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
     transform: "rotate(0deg)",

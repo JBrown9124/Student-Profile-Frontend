@@ -34,7 +34,7 @@ const secondaryText = ({
   const average = handleAverage(grades);
   return (
     <>
-      <Container style={{ marginLeft: "90px" }} fluid>
+      <Container style={{ marginLeft: "10%" }} fluid>
         <Row>
           <Typography component="span" variant="body1">
             Email: {email}
@@ -75,7 +75,6 @@ const secondaryText = ({
                     paddingBottom: 0.5,
                     paddingLeft: 1,
                     paddingRight: 1,
-
                     border: "thin",
                     backgroundColor: "rgb(218, 216, 216)",
                     borderRadius: "3px",

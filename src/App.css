@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-.appContainer{
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+
+.appContainer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(191, 189, 206, 0.986); 
-  font-family: Raleway!important;
+  background-color: rgba(191, 189, 206, 0.986);
+  font-family: Raleway !important;
+}
+
+.MuiSvgIcon-root:hover {
+  color: black !important
+}
+
+
+.Mui-focusVisible {
+  background-color: white !important;
 }

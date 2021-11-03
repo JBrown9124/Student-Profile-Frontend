@@ -1,11 +1,10 @@
-
-
 .gradesContainer {
-    margin-left: 24%;
+    margin-left: 22.6%;
 }
+
 @media (max-width: 480px) {
     .gradesContainer {
-        margin-left: 60%;
+        margin-left: 45%;
     }
 }
 

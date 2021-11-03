@@ -1,14 +1,21 @@
-import {styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 const CustomTextField = styled(TextField)({
   "& label.Mui-focused": {
     color: "black",
     backgroundColor: "white",
-  fontFamily: "Railway, sans-serif",
-  fontWeight: 400,
+    fontSize: "1.4em!important",
+  },
+  "& input::placeholder": {
+    fontSize: "1.4em!important",
+    color: "black!important",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "black",
+  },
+  "& .MuiInput-underline:before": {
+    borderBottomColor: " rgba(191, 189, 206, 0.986)",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -23,22 +30,23 @@ const CustomTextField = styled(TextField)({
   },
 });
 interface Props {
-  searchItem: string;
   handleSearchItem: (searchItem: string) => void;
-  placeholder: string;
 }
-export default function SearchTagTextField({ searchItem, handleSearchItem, placeholder }: Props) {
+export default function SearchTagTextField({ handleSearchItem }: Props) {
+  const [newSearchItem, setNewSearchItem] = useState("");
+  useEffect(() => {
+    const change = setTimeout(() => handleSearchItem(newSearchItem), 100);
+    return () => clearTimeout(change);
+  }, [newSearchItem]);
   return (
-    <div style={{ textAlign: "center", marginTop: 15 }}>
+    <div style={{ textAlign: "center", marginTop: 20, marginBottom: 1 }}>
       <CustomTextField
-        value={searchItem}
-        onChange={(e) => handleSearchItem(e.target.value)}
-       
+        value={newSearchItem}
+        onChange={(e) => setNewSearchItem(e.target.value)}
         id="tag-search"
-     
         variant="standard"
         sx={{ width: "98%" }}
-        placeholder={placeholder}
+        placeholder="Search by tag"
       />
     </div>
   );

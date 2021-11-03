@@ -1,15 +1,10 @@
-
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-
+import { createTheme } from "@mui/material/styles";
 
 let theme = createTheme();
 
-theme.typography.h6 = {
- 
-};
 theme.typography.body1 = {
   fontFamily: "Raleway, sans-serif",
-  
+
   color: "rgb(66, 61, 61)",
   [theme.breakpoints.up("sm")]: {
     fontSize: "1.0rem",
@@ -18,31 +13,17 @@ theme.typography.body1 = {
     fontSize: ".5rem",
   },
 };
-theme.typography.body2 = {
-
-};
-theme.typography.h5 = {
- 
-};
-theme.typography.h2 = {
-  
-};
 theme.typography.h1 = {
   fontFamily: "Raleway, sans-serif",
 
   color: "black",
-    fontWeight: "bold",
+  fontWeight: "bold",
   [theme.breakpoints.up("sm")]: {
     fontSize: "2.6rem",
   },
   [theme.breakpoints.down("sm")]: {
-    fontSize: "1.4rem",
+    fontSize: "1.0rem",
   },
 };
-theme.typography.h3 = {
- 
-};
-theme.typography.h4 = {
 
-};
 export default theme;
