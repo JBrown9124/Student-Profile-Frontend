@@ -130,6 +130,7 @@ export default function StudentList({ studentData }: StudentData) {
       >
         <SearchNameTextField
           handleSearchItem={(props) => setNameSearchItem(props)}
+       
         />
         <SearchTagTextField
           handleSearchItem={(props) => setTagSearchItem(props)}
@@ -230,8 +231,10 @@ export default function StudentList({ studentData }: StudentData) {
                             tags,
                             id,
                             addTag(props) {
+                             
                               tags.push(props);
-                              setSearchResults([...studentData]);
+                              setSearchResults([...searchResults]);
+                              
                             },
                           })}
                         />
